@@ -1,6 +1,9 @@
 
 <template>
-  <div>{{ pageFormat }}</div>
+  <div>
+    <div>Page Format: {{ pageFormat }}</div>
+    <div>Page: {{ page }}</div>
+  </div>
 </template>
 
 <script>
@@ -9,7 +12,10 @@ export default {
   name: 'PgReadView',
   computed: {
     pageFormat () {
-      return this.$store.state.pageFormat
+      return this.$store.getters.pageFormat
+    },
+    page () {
+      return this.$store.getters.page
     }
   },
   beforeRouteUpdate (to, from, next) {
@@ -26,7 +32,7 @@ export default {
   },
   methods: {
     getPage () {
-      this.$store.dispatch('getPageFormat', this.$route.params.pageId)
+      this.$store.dispatch('getPage', this.$route.params.pageId)
     },
     getPageFormat () {
       this.$store.dispatch('getPageFormat', this.$route.params.pageId)

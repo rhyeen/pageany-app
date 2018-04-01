@@ -1,4 +1,4 @@
-import PageFormatService from '@/common/page-format.service.js'
+import PageFormatService from '@/common/page-format.service'
 
 export default {
   state: {
@@ -13,9 +13,13 @@ export default {
     getPageFormat ({ commit }, pageId) {
       return PageFormatService.get(pageId, true)
         .then((pageFormat) => {
-          console.log(JSON.stringify(pageFormat))
           commit('setPageFormat', pageFormat)
         })
+    }
+  },
+  getters: {
+    pageFormat (state) {
+      return state.pageFormat
     }
   }
 }
