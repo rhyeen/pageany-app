@@ -3,6 +3,7 @@
   <div>
     <div>Page Format: {{ pageFormat }}</div>
     <div>Page: {{ page }}</div>
+    <m-button interactive>Example</m-button>
   </div>
 </template>
 
